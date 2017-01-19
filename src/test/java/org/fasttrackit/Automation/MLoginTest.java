@@ -13,7 +13,7 @@ import static org.hamcrest.core.Is.is;
 public class MLoginTest extends TestBase {
     @Test
     public void validLogind(){
-        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
+        openWebpage();
 
         login("eu@fast.com", "eu.pass");
 
@@ -23,9 +23,12 @@ public class MLoginTest extends TestBase {
     }
 
 
+
+
+
     @Test(dependsOnMethods = "validLogind")
     public void invalidPasswordTest(){
-        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
+        openWebpage();
 
         login("eu@fast.com", "eu.pass123");
 
@@ -38,6 +41,31 @@ public class MLoginTest extends TestBase {
 
 
 
+    }
+
+    @Test
+    public void changePasswordWithInvalidCurrentPassword (){
+        openWebpage();
+        login("eu@fast.com", "eu.pass");
+        WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
+        preferencesbtn.click();
+
+
+
+        WebElement currentPasswordField = driver.findElement(By.name("password"));
+        WebElement repeatPasswordField = driver.findElement(By.name("newPasswordRepeat"));
+        WebElement newPasswordField = driver.findElement(By.name("newPassword"));
+
+        currentPasswordField.sendKeys("wrong.pass");
+        newPasswordField.sendKeys("new.pass");
+        repeatPasswordField.sendKeys("new.pass");
+
+
+    }
+
+    private void openWebpage() {
+        System.out.println("ready");
+        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
     }
 
     public void login(String user, String password){
