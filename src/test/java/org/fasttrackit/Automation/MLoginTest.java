@@ -17,14 +17,13 @@ public class MLoginTest extends TestBase {
 
         login("eu@fast.com", "eu.pass");
 
-
         WebElement logoutButton = driver.findElement(By.linkText("Logout"));
         logoutButton.click();
 
     }
 
 
-    @Test
+    @Test(dependsOnMethods = "validLogind")
     public void invalidPasswordTest(){
         driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
 
