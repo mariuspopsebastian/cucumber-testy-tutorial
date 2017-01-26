@@ -1,6 +1,7 @@
 package org.fasttrackit.Automation;
 
 
+import com.sdl.selenium.web.utils.Utils;
 import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -50,6 +51,7 @@ public class MLoginTest extends TestBase {
         WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
         preferencesbtn.click();
 
+        Utils.sleep(2000);
 
 
         WebElement currentPasswordField = driver.findElement(By.name("password"));
