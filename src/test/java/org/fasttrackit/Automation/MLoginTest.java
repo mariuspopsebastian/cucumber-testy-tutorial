@@ -53,31 +53,8 @@ public class MLoginTest extends TestBase {
 
     }
 
-    @Test
-    public void changePasswordWithInvalidCurrentPassword (){
-        openWebpage();
-        loginpage.login("eu@fast.com", "eu.pass");
-        WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
-        preferencesbtn.click();
-
-        Utils.sleep(2000);
 
 
-        WebElement currentPasswordField = driver.findElement(By.name("password"));
-        WebElement repeatPasswordField = driver.findElement(By.name("newPasswordRepeat"));
-        WebElement newPasswordField = driver.findElement(By.name("newPassword"));
-
-        currentPasswordField.sendKeys("wrong.pass");
-        newPasswordField.sendKeys("new.pass");
-        repeatPasswordField.sendKeys("new.pass");
-
-
-    }
-
-    private void openWebpage() {
-        System.out.println("ready");
-        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
-    }
 
 
 }
