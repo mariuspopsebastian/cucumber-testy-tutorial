@@ -2,9 +2,11 @@ package org.fasttrackit.Automation;
 
 
 import com.sdl.selenium.web.utils.Utils;
+import org.fasttrackit.automation.Loginpage;
 import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,11 +14,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class MLoginTest extends TestBase {
+
+    private Loginpage loginpage;
+
+    public MLoginTest() {
+        loginpage = PageFactory.initElements(driver, Loginpage.class);
+    }
+
     @Test
     public void validLogind(){
         openWebpage();
 
-        login("eu@fast.com", "eu.pass");
+        loginpage.login("eu@fast.com", "eu.pass");
 
         WebElement logoutButton = driver.findElement(By.linkText("Logout"));
         logoutButton.click();
@@ -31,7 +40,7 @@ public class MLoginTest extends TestBase {
     public void invalidPasswordTest(){
         openWebpage();
 
-        login("eu@fast.com", "eu.pass123");
+        loginpage.login("eu@fast.com", "eu.pass123");
 
         WebElement errorElement = driver.findElement(By.className("error-msg"));
         System.out.println(errorElement.getText());
@@ -47,7 +56,7 @@ public class MLoginTest extends TestBase {
     @Test
     public void changePasswordWithInvalidCurrentPassword (){
         openWebpage();
-        login("eu@fast.com", "eu.pass");
+        loginpage.login("eu@fast.com", "eu.pass");
         WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
         preferencesbtn.click();
 
@@ -70,14 +79,5 @@ public class MLoginTest extends TestBase {
         driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
     }
 
-    public void login(String user, String password){
-        WebElement findEmail = driver.findElement(By.name("username"));
-        WebElement findPassword = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.id("loginButton"));
 
-
-        findEmail.sendKeys(user);
-        findPassword.sendKeys(password);
-        loginButton.click();
-    }
 }
