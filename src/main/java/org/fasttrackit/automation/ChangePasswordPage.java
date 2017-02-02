@@ -19,9 +19,9 @@ public class ChangePasswordPage {
 
 
     public void changePasswordPage(String currentPass, String repeatPass, String newPassword) {
-        currentPasswordField.sendKeys("currentPass");
-        repeatPasswordField.sendKeys("newPass");
-        newPasswordField.sendKeys("newPass");
+        currentPasswordField.sendKeys(currentPass);
+        repeatPasswordField.sendKeys(repeatPass);
+        newPasswordField.sendKeys(newPassword);
         saveBtn.click();
 
     }

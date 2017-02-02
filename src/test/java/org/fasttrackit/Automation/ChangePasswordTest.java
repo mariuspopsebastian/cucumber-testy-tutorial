@@ -25,15 +25,11 @@ public class ChangePasswordTest extends TestBase {
 
     @Test
     public void changePasswordWithInvalidCurrentPassword (){
-        openWebpage();
-        loginpage.login("eu@fast.com", "eu.pass");
-        WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
-        preferencesbtn.click();
-
-        Utils.sleep(2000);
-
+        openPage();
 
         page.changePasswordPage("wrong.pass", "new.pass","new.pass" );
+
+        assertThat(page.getStatusMessage(), is("Your preview password is incorrect!"));
 
 
 
@@ -41,19 +37,19 @@ public class ChangePasswordTest extends TestBase {
     }
     @Test
     public void changePasswordWithInvalidRepeatPassword (){
+        openPage();
+
+        page.changePasswordPage("eu.pass", "new1.pass","new2.pass");
+
+        assertThat(page.getStatusMessage(), is("Password does not match the confirm password!"));
+
+    }
+    public void openPage() {
         openWebpage();
         loginpage.login("eu@fast.com", "eu.pass");
         WebElement preferencesbtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
         preferencesbtn.click();
-
         Utils.sleep(2000);
-
-
-        page.changePasswordPage("eu.pass", "new1.pass","new2.pass");
-        //Asertul
-
-        assertThat(page.getStatusMessage(), is("Your preview password is incorrect!"));
-
     }
 
 
