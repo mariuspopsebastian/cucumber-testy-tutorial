@@ -22,7 +22,7 @@ public class MLoginTest extends TestBase {
     }
 
     @Test
-    public void validLogind(){
+    public void validLogind() {
         openWebpage();
 
         loginpage.login("eu@fast.com", "eu.pass");
@@ -33,11 +33,8 @@ public class MLoginTest extends TestBase {
     }
 
 
-
-
-
     @Test(dependsOnMethods = "validLogind")
-    public void invalidPasswordTest(){
+    public void invalidPasswordTest() {
         openWebpage();
 
         loginpage.login("eu@fast.com", "eu.pass123");
@@ -45,16 +42,10 @@ public class MLoginTest extends TestBase {
         WebElement errorElement = driver.findElement(By.className("error-msg"));
         System.out.println(errorElement.getText());
         //Assert.assertEquals(errorElement.getText(), "Invalid user or password!");
-        assertThat(errorElement.getText(), is ("Invalid user or password!"));
-
-
-
+        assertThat(errorElement.getText(), is("Invalid user or password!"));
 
 
     }
-
-
-
 
 
 }
