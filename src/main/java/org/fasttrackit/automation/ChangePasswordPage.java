@@ -14,12 +14,22 @@ public class ChangePasswordPage {
     //TO DO save button;
     @FindBy (xpath = "//*[@id='preferences-win']//button[normalize-space(text())='Save']")
     private WebElement saveBtn;
+    @FindBy (className ="status-msg")
+    private WebElement statusMsg;
+
 
     public void changePasswordPage(String currentPass, String repeatPass, String newPassword) {
         currentPasswordField.sendKeys("currentPass");
         repeatPasswordField.sendKeys("newPass");
         newPasswordField.sendKeys("newPass");
         saveBtn.click();
+
+    }
+
+    public String getStatusMessage(){
+        String msg = statusMsg.getText();
+        System.out.println(msg);
+        return msg;
     }
 
     //TO DO click on Save button
