@@ -14,9 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ElementsTest extends TestBase {
     private LoginView loginView = new LoginView();
-    private ElementsView page = new ElementsView()
-
-
+    private ElementsView page = new ElementsView();
 
 
     @Test
