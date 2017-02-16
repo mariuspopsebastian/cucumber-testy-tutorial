@@ -7,6 +7,8 @@ import com.sdl.selenium.web.utils.Utils;
 import org.fasttrackit.automation.ElementsView;
 import org.fasttrackit.automation.LoginView;
 import org.fasttrackit.util.TestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -50,6 +52,8 @@ public class ElementsTest extends TestBase {
         page.autoOption.click();
         page.manualOption.click();
     }
+
+
 
 
 
