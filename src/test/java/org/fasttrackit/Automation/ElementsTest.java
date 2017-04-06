@@ -1,5 +1,6 @@
 package org.fasttrackit.Automation;
 
+import com.sdl.selenium.bootstrap.form.MultiSelect;
 import com.sdl.selenium.web.utils.Utils;
 import org.fasttrackit.automation.DropDown;
 import org.fasttrackit.automation.ElementsView;
@@ -57,9 +58,11 @@ public class ElementsTest extends TestBase {
         DropDown dropDown = new DropDown();
         dropDown.select("Manual");
 
-        Utils.sleep(2000);
-
+        Utils.sleep(500);
         dropDown.select("Auto");
+
+        MultiSelect source = new MultiSelect().setClasses("multiselect");
+        source.select(" Tomatoes", " Mozzarella");
 
 
 
