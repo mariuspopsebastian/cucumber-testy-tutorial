@@ -29,7 +29,7 @@ public abstract class TestBase {
     }
     protected void  openLoginPage() {
         System.out.println("ready");
-        driver.get("https://www.evomag.ro/client/auth");
+        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
         System.out.println("--------");
     }
 

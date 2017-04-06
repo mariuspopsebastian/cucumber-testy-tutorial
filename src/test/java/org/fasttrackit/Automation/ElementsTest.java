@@ -1,14 +1,10 @@
 package org.fasttrackit.Automation;
 
-import com.sdl.selenium.web.SearchType;
-import com.sdl.selenium.web.WebLocator;
-import com.sdl.selenium.web.form.CheckBox;
 import com.sdl.selenium.web.utils.Utils;
+import org.fasttrackit.automation.DropDown;
 import org.fasttrackit.automation.ElementsView;
 import org.fasttrackit.automation.LoginView;
 import org.fasttrackit.util.TestBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -53,8 +49,23 @@ public class ElementsTest extends TestBase {
         page.manualOption.click();
     }
 
+    @Test
+    public void dropDownComponentTest(){
+        openLoginPage();
+        loginView.login("eu@fast.com", "eu.pass");
+
+        DropDown dropDown = new DropDown();
+        dropDown.select("Manual");
+
+        Utils.sleep(2000);
+
+        dropDown.select("Auto");
 
 
+
+
+
+    }
 
 
 

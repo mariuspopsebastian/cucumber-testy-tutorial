@@ -1,6 +1,7 @@
 package org.fasttrackit.Automation;
 
 
+import com.sdl.selenium.web.table.Table;
 import org.fasttrackit.automation.LoginView;
 import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
@@ -22,6 +23,7 @@ public class MLoginTest extends TestBase {
     @Test
     public void validLogind() {
         openLoginPage();
+        
 
         page.login("eu@fast.com", "eu.pass");
 
