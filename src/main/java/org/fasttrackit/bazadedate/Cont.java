@@ -4,14 +4,30 @@ package org.fasttrackit.bazadedate;
  * Created by Marius on 23-Mar-17.
  */
 public class Cont {
-    private String nume;
-    private int cantitate;
+    private String email;
+    private String password;
 
-    public Cont(String nume, int cantitate){
-        this.nume=nume;
-        this.cantitate=cantitate;
+    public Cont(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
-    //public getNume(){return nume;}
-    //public getCantitate(){return cantitate;}
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String toString() {
+        return "Cont{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+
+
+
