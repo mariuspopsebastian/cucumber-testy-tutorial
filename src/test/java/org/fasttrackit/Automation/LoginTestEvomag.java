@@ -33,6 +33,8 @@ public class LoginTestEvomag extends TestBase{
 
         page.login("qaautomat89@gmail.com","parolaevomag");
         System.out.println("Te ai logat cu succes");
+        WebLink inapoiInSite = new WebLink().setText("Inapoi in site");
+        inapoiInSite.click();
         page.logout();
     }
 
@@ -72,10 +74,12 @@ public class LoginTestEvomag extends TestBase{
     }
 
     @Test(dataProvider = "comparaProduse")
-    public void createwishlist (Produs produs){
+    public void comparaProduse(Produs produs){
         openLoginPage();
         page.login("qaautomat89@gmail.com","parolaevomag");
 //        searchFlowEvomag.search("iphone 6s");
+        WebLink inapoiInSite = new WebLink().setText("Inapoi in site");
+        inapoiInSite.click();
         searchFlowEvomag.search(produs.getSearch());
         //Utils.sleep(5000);
 //        searchFlowEvomag.clickIphone();

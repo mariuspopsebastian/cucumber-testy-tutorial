@@ -18,6 +18,7 @@ public class LoginViewEvomag {
     private WebLocator logoutBtn = new WebLocator().setClasses("CosAchizitii");
 
 
+
     public void login(String email, String pass) {
         emailField.sendKeys(email);
         passField.sendKeys(pass);
